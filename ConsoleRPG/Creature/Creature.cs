@@ -37,5 +37,4 @@ namespace ConsoleRPG
             return false;
         }
     }
-
 }

@@ -1,0 +1,151 @@
+{
+  "$id": "1",
+  "$type": "ConsoleRPG.GameData, ConsoleRPG",
+  "character": {
+    "$id": "2",
+    "$type": "ConsoleRPG.Character, ConsoleRPG",
+    "NextLevelExp": 100,
+    "TotalExp": 0,
+    "PlayerSkill": {
+      "$id": "3",
+      "$type": "ConsoleRPG.Skill, ConsoleRPG",
+      "Names": {
+        "$id": "4",
+        "$type": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+        "$values": [
+          "대쉬",
+          "힐윈드"
+        ]
+      },
+      "Damage": {
+        "$id": "5",
+        "$type": "System.Collections.Generic.List`1[[System.Single, System.Private.CoreLib]], System.Private.CoreLib",
+        "$values": [
+          30.0,
+          20.0
+        ]
+      },
+      "MpCost": {
+        "$id": "6",
+        "$type": "System.Collections.Generic.List`1[[System.Int32, System.Private.CoreLib]], System.Private.CoreLib",
+        "$values": [
+          20,
+          25
+        ]
+      },
+      "Count": 2
+    },
+    "hpMaxModifier": 0.0,
+    "damageModifier": 0.0,
+    "defenceModifier": 0.0,
+    "mpMaxModifier": 0.0,
+    "criticalModifier": 0.0,
+    "avoidModifier": 0.0,
+    "hp": 100.0,
+    "textDelay": 200,
+    "Job": "전사",
+    "HpMax": 100.0,
+    "Damage": 22.0,
+    "Defence": 14.0,
+    "MpMax": 50.0,
+    "Critical": 0.15,
+    "Avoid": 0.15,
+    "Gold": 1500,
+    "Hp": 100.0,
+    "Mp": 50.0,
+    "Inventory": {
+      "$id": "7",
+      "$type": "ConsoleRPG.Inventory, ConsoleRPG",
+      "Items": {
+        "$type": "System.Collections.Generic.List`1[[ConsoleRPG.Item, ConsoleRPG]], System.Private.CoreLib",
+        "$values": [
+          {
+            "$id": "8",
+            "$type": "ConsoleRPG.Gear, ConsoleRPG",
+            "GearType": 0,
+            "Attack": 12.0,
+            "Defence": 0.0,
+            "Critical": 0.0,
+            "Avoid": 0.0,
+            "IsEquip": true,
+            "ID": 1,
+            "Name": "철제 검",
+            "Description": "공격에 사용되는 무기",
+            "Price": 1500,
+            "Type": 0,
+            "StackCount": null
+          },
+          {
+            "$id": "9",
+            "$type": "ConsoleRPG.Gear, ConsoleRPG",
+            "GearType": 1,
+            "Attack": 0.0,
+            "Defence": 6.0,
+            "Critical": 0.0,
+            "Avoid": 0.0,
+            "IsEquip": true,
+            "ID": 2,
+            "Name": "원형 방패",
+            "Description": "적의 공격을 방어하는 방패",
+            "Price": 1000,
+            "Type": 0,
+            "StackCount": null
+          },
+          {
+            "$id": "10",
+            "$type": "ConsoleRPG.Gear, ConsoleRPG",
+            "GearType": 2,
+            "Attack": 0.0,
+            "Defence": 3.0,
+            "Critical": 0.0,
+            "Avoid": 5.0,
+            "IsEquip": true,
+            "ID": 3,
+            "Name": "사슬 갑옷",
+            "Description": "철사 고리를 엮어 만든 갑옷",
+            "Price": 2000,
+            "Type": 0,
+            "StackCount": null
+          }
+        ]
+      },
+      "Parent": {
+        "$ref": "2"
+      },
+      "Count": 3,
+      "MaxPad": 4
+    },
+    "Equipment": {
+      "$id": "11",
+      "$type": "ConsoleRPG.Equipment, ConsoleRPG",
+      "Equipped": {
+        "$type": "System.Collections.Generic.Dictionary`2[[ConsoleRPG.GearSlot, ConsoleRPG],[ConsoleRPG.Gear, ConsoleRPG]], System.Private.CoreLib",
+        "Weapon": {
+          "$ref": "8"
+        },
+        "Shield": {
+          "$ref": "9"
+        },
+        "Armor": {
+          "$ref": "10"
+        }
+      }
+    },
+    "Name": "asdsadsad",
+    "DefaultHpMax": 100.0,
+    "DefaultDamage": 22.0,
+    "DefaultDefence": 14.0,
+    "DefaultMpMax": 50.0,
+    "DefaultCritical": 0.15,
+    "DefaultAvoid": 0.15,
+    "Level": 1
+  },
+  "stage": {
+    "$id": "12",
+    "$type": "ConsoleRPG.Stage, ConsoleRPG",
+    "MonsterMinCount": 1,
+    "MonsterMaxCount": 4,
+    "MonsterCount": 0,
+    "StageLevel": 1
+  }
+}
