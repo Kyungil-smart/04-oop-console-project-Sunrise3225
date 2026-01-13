@@ -24,6 +24,31 @@ namespace ConsoleRPG
         }
         public static int Print(int line, string content, bool isHighlightNumber = false, int delay = 0, int margin = 2, bool clear = false)
         {
+            // 최신 창 크기 반영
+            width = Console.WindowWidth;
+            height = Console.WindowHeight;
+
+            // 화면 밖이면 그냥 무시 (테두리 보존)
+            if (line < 0 || line >= height - 1)
+                return line + 1;
+
+            // 오른쪽 테두리(마지막 칸) 침범 금지
+            int maxPrintable = (width - 2) - margin;   // width-2: 오른쪽 테두리 직전
+            if (maxPrintable <= 0)
+                return line + 1;
+
+            // 한글 2칸 기준으로 content를 maxPrintable에 맞춰 자르기
+            int acc = 0;
+            var sb = new StringBuilder(content.Length);
+            foreach (char ch in content)
+            {
+                int w = IsKorean(ch) ? 2 : 1;
+                if (acc + w > maxPrintable) break;
+                sb.Append(ch);
+                acc += w;
+            }
+            content = sb.ToString();
+
             if (clear) ClearLine(line);
             Console.SetCursorPosition(margin, line++);
             if (isHighlightNumber)
@@ -108,12 +133,6 @@ namespace ConsoleRPG
                 Console.SetCursorPosition(margin, line + i);
                 Console.Write(new string(' ', Math.Max(0, printWidthPos)));  //  WriteLine 금지
             }
-
-            //for (int i = 0; i < clearLine; i++)
-            //{
-            //    Console.SetCursorPosition(margin, line + i);
-            //    Console.WriteLine(new string(' ', Math.Max(0, printWidthPos)));
-            //}
 
             if (selectionLine >= 0)
                 Print(line, "공격할 몬스터를 선택하세요.");
@@ -201,7 +220,7 @@ namespace ConsoleRPG
                 {
                     Console.ForegroundColor = ConsoleColor.Green;
                 }
-                Console.WriteLine(actionText[i]);
+                Console.Write(actionText[i]);
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 line++;
             }
@@ -228,13 +247,13 @@ namespace ConsoleRPG
             // HP,MP 상태 바 출력
             Console.SetCursorPosition(printMargin, line);
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine($"[{HPBar}] {Game.Player.Hp}/{Game.Player.HpMax}  ");
+            Console.Write($"[{HPBar}] {Game.Player.Hp}/{Game.Player.HpMax}  ");
             line++;
 
             Print(line, "".PadLeft(25, ' '), false, 0, 2);
             Console.SetCursorPosition(printMargin, line);
             Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine($"[{MPBar}] {Game.Player.Mp}/{Game.Player.MpMax}  ");
+            Console.Write($"[{MPBar}] {Game.Player.Mp}/{Game.Player.MpMax}  ");
 
             Console.ForegroundColor = ConsoleColor.Yellow;
         }

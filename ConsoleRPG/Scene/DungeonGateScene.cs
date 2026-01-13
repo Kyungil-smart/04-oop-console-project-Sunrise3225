@@ -14,7 +14,7 @@
         }
         public override void NextScene()
         {
-            Renderer.PrintOptions(19, Options, true, selectionIndex);
+            Renderer.PrintOptions(22, Options, true, selectionIndex);
             while (true)
             {
                 ConsoleKeyInfo key = Console.ReadKey(true);
@@ -33,15 +33,16 @@
             Renderer.Print(9, $"공격력 : {Game.Player.Damage}");
             Renderer.Print(11, $"방어력 : {Game.Player.Defence}");
             Renderer.Print(13, $"체 력 : {Game.Player.Hp} / {Game.Player.DefaultHpMax}");
-            Renderer.Print(15, $"Gold : {Game.Player.Gold:##,#0} G");
+            Renderer.Print(15, $"마 나 : {Game.Player.Mp} / {Game.Player.DefaultMpMax}");
+            Renderer.Print(17, $"Gold : {Game.Player.Gold:##,#0} G");
             if (Game.Player.Hp < 20)
             {
-                Renderer.Print(22, "체력이 부족하여 던전에 입장할 수 없습니다(체력 20이상 필요");
+                Renderer.Print(22, "체력이 부족하여 던전에 입장할 수 없습니다(체력 20이상 필요)");
                 Renderer.PrintKeyGuide("[ESC : 메인화면]");
             }
             else
                 Renderer.PrintKeyGuide("[ESC : 메인화면] [Enter : 던전 입장]");
-            Renderer.Print(17, $"다음 단계 : {Game.Stage.StageLevel} 스테이지");
+            Renderer.Print(19, $"다음 단계 : {Game.Stage.StageLevel} 스테이지");
         }
     }
 }

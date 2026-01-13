@@ -41,7 +41,7 @@
                 }
             }
             // 선택지 정보 초기화
-            Options.Add("NewGame", new("NewGame", "새로 시작", () => EnterScene<CreateCharacterScene>()));
+            Options.Add("NewGame", new("NewGame", "새로 시작", () => NewGame()));
             Options.Add("LoadGame", new("LoadGame", "불러 오기", LoadGame));
             Options.Add("Back", new("Back", "뒤로 가기", () => EnterScene<BaseScene>(PrevScene.GetType().Name)));
             Options.Add("ShowInfo", new("ShowInfo", "상태 보기", () => EnterScene<CharacterInfoScene>()));
@@ -113,6 +113,13 @@
             Game.Player = Managers.Game.data.character;
             Game.Stage = Managers.Game.data.stage;
             EnterScene<MainScene>();
+        }
+        void NewGame()
+        {
+            Game.Stage = new Stage();
+            Game.Stage.StageLevel = 1;
+            Game.Player = null;
+            EnterScene<CreateCharacterScene>();
         }
     }
     public class ActionOption

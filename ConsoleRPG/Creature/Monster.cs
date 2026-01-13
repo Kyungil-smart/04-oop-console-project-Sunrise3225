@@ -43,7 +43,7 @@ namespace ConsoleRPG
             int endLine = Math.Min(25, Console.WindowHeight - 2);
             for (int i = line; i < endLine; i++)
             {
-                Renderer.Print(line + i, new string(' ', printWidthPos - 1), false, 0, printWidthPos);
+                Renderer.Print(i, new string(' ', Math.Max(0, printWidthPos - 1)), false, 0, printWidthPos);
             }
             if (RandomChance(creature.DefaultAvoid)) // 회피 했을 때
             {

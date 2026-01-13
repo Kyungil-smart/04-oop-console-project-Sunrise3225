@@ -26,9 +26,9 @@ namespace ConsoleRPG
         // name, hp, damage, defence, mp, critical, avoid
         public static Monster[] Monsters =
         {
-            new Monster("슬라임", 10, 8, 1, 0, 0.1f, 0.1f),
-            new Monster("오크", 20, 15, 3, 0, 0.1f, 0.05f),
-            new Monster("스켈레톤", 13, 20, 2, 0, 0.15f, 0.02f),
+            new Monster("슬라임", 10, 20, 0, 0, 0.1f, 0.1f),
+            new Monster("오크", 20, 25, 3, 0, 0.1f, 0.05f),
+            new Monster("스켈레톤", 23, 35, 2, 0, 0.15f, 0.02f),
         };
         // id, name, description, price, type, stackCount
         public static Item[] Items =

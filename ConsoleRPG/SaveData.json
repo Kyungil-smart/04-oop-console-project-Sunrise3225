@@ -4,8 +4,8 @@
   "character": {
     "$id": "2",
     "$type": "ConsoleRPG.Character, ConsoleRPG",
-    "NextLevelExp": 200,
-    "TotalExp": 90,
+    "NextLevelExp": 100,
+    "TotalExp": 0,
     "PlayerSkill": {
       "$id": "3",
       "$type": "ConsoleRPG.Skill, ConsoleRPG",
@@ -13,16 +13,16 @@
         "$id": "4",
         "$type": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]], System.Private.CoreLib",
         "$values": [
-          "대쉬",
-          "힐윈드"
+          "찌르기",
+          "연속 베기"
         ]
       },
       "Damage": {
         "$id": "5",
         "$type": "System.Collections.Generic.List`1[[System.Single, System.Private.CoreLib]], System.Private.CoreLib",
         "$values": [
-          30.0,
-          20.0
+          50.0,
+          15.0
         ]
       },
       "MpCost": {
@@ -30,7 +30,7 @@
         "$type": "System.Collections.Generic.List`1[[System.Int32, System.Private.CoreLib]], System.Private.CoreLib",
         "$values": [
           20,
-          25
+          30
         ]
       },
       "Count": 2
@@ -41,18 +41,18 @@
     "mpMaxModifier": 0.0,
     "criticalModifier": 0.0,
     "avoidModifier": 0.0,
-    "hp": 81.0,
+    "hp": 90.0,
     "textDelay": 200,
-    "Job": "전사",
-    "HpMax": 120.0,
-    "Damage": 24.0,
-    "Defence": 15.0,
-    "MpMax": 61.0,
-    "Critical": 0.15,
-    "Avoid": 0.15,
-    "Gold": 4500,
-    "Hp": 81.0,
-    "Mp": 50.0,
+    "Job": "도적",
+    "HpMax": 90.0,
+    "Damage": 20.0,
+    "Defence": 13.0,
+    "MpMax": 70.0,
+    "Critical": 0.35,
+    "Avoid": 0.35000002,
+    "Gold": 5000,
+    "Hp": 90.0,
+    "Mp": 70.0,
     "Inventory": {
       "$id": "7",
       "$type": "ConsoleRPG.Inventory, ConsoleRPG",
@@ -109,7 +109,9 @@
           }
         ]
       },
-      "Parent": null,
+      "Parent": {
+        "$ref": "2"
+      },
       "Count": 3,
       "MaxPad": 4
     },
@@ -129,21 +131,21 @@
         }
       }
     },
-    "Name": "sd",
-    "DefaultHpMax": 120.0,
-    "DefaultDamage": 24.0,
-    "DefaultDefence": 15.0,
-    "DefaultMpMax": 61.0,
-    "DefaultCritical": 0.15,
-    "DefaultAvoid": 0.15,
-    "Level": 3
+    "Name": "addd",
+    "DefaultHpMax": 90.0,
+    "DefaultDamage": 20.0,
+    "DefaultDefence": 13.0,
+    "DefaultMpMax": 70.0,
+    "DefaultCritical": 0.35,
+    "DefaultAvoid": 0.35000002,
+    "Level": 1
   },
   "stage": {
     "$id": "12",
     "$type": "ConsoleRPG.Stage, ConsoleRPG",
     "MonsterMinCount": 1,
     "MonsterMaxCount": 4,
-    "MonsterCount": 4,
-    "StageLevel": 5
+    "MonsterCount": 0,
+    "StageLevel": 1
   }
 }
