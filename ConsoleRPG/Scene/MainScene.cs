@@ -13,7 +13,7 @@
             Options.Add(Managers.Scene.GetOption("Equipment"));
             Options.Add(Managers.Scene.GetOption("Shop"));
             Options.Add(Managers.Scene.GetOption("Dungeon"));
-            //Options.Add(Managers.Scene.GetOption("Rest"));
+            Options.Add(Managers.Scene.GetOption("Rest"));
 
             DrawScene();
         }

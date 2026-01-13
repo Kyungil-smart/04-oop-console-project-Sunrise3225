@@ -40,7 +40,8 @@ namespace ConsoleRPG
         {
             int printWidthPos = Console.WindowWidth / 2;
             bool isCritical = false;
-            for (int i = line; i < 26; i++)
+            int endLine = Math.Min(25, Console.WindowHeight - 2);
+            for (int i = line; i < endLine; i++)
             {
                 Renderer.Print(line + i, new string(' ', printWidthPos - 1), false, 0, printWidthPos);
             }

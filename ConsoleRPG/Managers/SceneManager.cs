@@ -51,7 +51,7 @@
             Options.Add("Dungeon", new("Dungeon", "던전 입구", () => EnterScene<DungeonGateScene>()));
             Options.Add("DungeonEnter", new("DungeonEnter", "던전 입장", () => EnterScene<BattleScene>()));
             Options.Add("Main", new("Main", "메인 으로", () => EnterScene<MainScene>()));
-            //Options.Add("Rest", new("Rest", "휴식 하기", () => EnterScene<RestScene>()));
+            Options.Add("Rest", new("Rest", "휴식 하기", () => EnterScene<RestScene>()));
 
             Options.Add("UseInn", new("UseInn", "여관 이용하기", UseInn));
         }
@@ -59,20 +59,20 @@
         void UseInn()
         {
             if (Game.Player.Hp == Game.Player.HpMax && Game.Player.Mp == Game.Player.MpMax)
-                Renderer.Print(12, "지금 휴식할 필요는 없을 것 같다.", clear: true);
+                Renderer.Print(13, "지금 휴식할 필요는 없을 것 같다.", clear: true);
             else if (Game.Player.Gold <= 100)
-                Renderer.Print(12, "돈이 부족합니다..", clear: true);
+                Renderer.Print(13, "돈이 부족합니다..", clear: true);
             else
             {
-                Renderer.Print(12, "휴 식 중 . . .", false, 2500, 2);
+                Renderer.Print(13, "휴 식 중 . . .", false, 2500, 2);
                 // 회복 처리
                 Game.Player.Hp = Game.Player.HpMax;
                 Game.Player.Mp = Game.Player.MpMax;
                 Game.Player.ChangeGold(-100);
                 Renderer.Print(5, $"당신의 체력 : {Game.Player.Hp} / {Game.Player.DefaultHpMax}");
-                Renderer.Print(6, $"당신의 마나 : {Game.Player.Mp} / {Game.Player.DefaultMpMax}");
-                Renderer.Print(8, $"보유 골드 : {Game.Player.Gold} G");
-                Renderer.Print(12, "휴식을 끝내니 힘이 솟아오른다.", clear: true);
+                Renderer.Print(7, $"당신의 마나 : {Game.Player.Mp} / {Game.Player.DefaultMpMax}");
+                Renderer.Print(9, $"보유 골드 : {Game.Player.Gold} G");
+                Renderer.Print(11, "휴식을 끝내니 힘이 솟아오른다.", clear: true);
             }
         }
         public ActionOption GetOption(string key) => Options[key];
@@ -112,7 +112,7 @@
         {
             Game.Player = Managers.Game.data.character;
             Game.Stage = Managers.Game.data.stage;
-            //EnterScene<MainScene>();
+            EnterScene<MainScene>();
         }
     }
     public class ActionOption

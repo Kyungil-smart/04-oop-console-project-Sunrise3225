@@ -4,8 +4,8 @@
   "character": {
     "$id": "2",
     "$type": "ConsoleRPG.Character, ConsoleRPG",
-    "NextLevelExp": 100,
-    "TotalExp": 0,
+    "NextLevelExp": 200,
+    "TotalExp": 90,
     "PlayerSkill": {
       "$id": "3",
       "$type": "ConsoleRPG.Skill, ConsoleRPG",
@@ -41,17 +41,17 @@
     "mpMaxModifier": 0.0,
     "criticalModifier": 0.0,
     "avoidModifier": 0.0,
-    "hp": 100.0,
+    "hp": 81.0,
     "textDelay": 200,
     "Job": "전사",
-    "HpMax": 100.0,
-    "Damage": 22.0,
-    "Defence": 14.0,
-    "MpMax": 50.0,
+    "HpMax": 120.0,
+    "Damage": 24.0,
+    "Defence": 15.0,
+    "MpMax": 61.0,
     "Critical": 0.15,
     "Avoid": 0.15,
-    "Gold": 1500,
-    "Hp": 100.0,
+    "Gold": 4500,
+    "Hp": 81.0,
     "Mp": 50.0,
     "Inventory": {
       "$id": "7",
@@ -109,9 +109,7 @@
           }
         ]
       },
-      "Parent": {
-        "$ref": "2"
-      },
+      "Parent": null,
       "Count": 3,
       "MaxPad": 4
     },
@@ -131,21 +129,21 @@
         }
       }
     },
-    "Name": "asdsadsad",
-    "DefaultHpMax": 100.0,
-    "DefaultDamage": 22.0,
-    "DefaultDefence": 14.0,
-    "DefaultMpMax": 50.0,
+    "Name": "sd",
+    "DefaultHpMax": 120.0,
+    "DefaultDamage": 24.0,
+    "DefaultDefence": 15.0,
+    "DefaultMpMax": 61.0,
     "DefaultCritical": 0.15,
     "DefaultAvoid": 0.15,
-    "Level": 1
+    "Level": 3
   },
   "stage": {
     "$id": "12",
     "$type": "ConsoleRPG.Stage, ConsoleRPG",
     "MonsterMinCount": 1,
     "MonsterMaxCount": 4,
-    "MonsterCount": 0,
-    "StageLevel": 1
+    "MonsterCount": 4,
+    "StageLevel": 5
   }
 }

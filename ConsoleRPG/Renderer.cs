@@ -56,7 +56,7 @@ namespace ConsoleRPG
                         Thread.Sleep(characterDelay);
                     }
                 }
-                else Console.WriteLine(content);
+                else Console.Write(content);
             }
             return line;
         }
@@ -97,10 +97,24 @@ namespace ConsoleRPG
         {
             int margin = 33;
             int printWidthPos = Console.WindowWidth / 2 - margin;
-            for (int i = 0; i < 2 + monsters.Count; i++)
+            // 실제 출력 높이만큼 넉넉히 지우기
+            int clearLine = 6 + monsters.Count * 3;
+
+            int maxY = Console.WindowHeight - 2; // (height-1은 아래 테두리)
+            int safeClear = Math.Max(0, Math.Min(clearLine, maxY - line));
+
+            for (int i = 0; i < safeClear; i++)
             {
-                Print(line + i, new string(' ', printWidthPos), false, 0, margin);
+                Console.SetCursorPosition(margin, line + i);
+                Console.Write(new string(' ', Math.Max(0, printWidthPos)));  //  WriteLine 금지
             }
+
+            //for (int i = 0; i < clearLine; i++)
+            //{
+            //    Console.SetCursorPosition(margin, line + i);
+            //    Console.WriteLine(new string(' ', Math.Max(0, printWidthPos)));
+            //}
+
             if (selectionLine >= 0)
                 Print(line, "공격할 몬스터를 선택하세요.");
 
@@ -126,9 +140,10 @@ namespace ConsoleRPG
 
                 Console.Write(fromZero ? i : i + 1);
                 Console.Write(". ");
+
                 if (monster.IsDead())
                 {
-                    Console.WriteLine($"{monster.Name, -8} : Dead");
+                    Console.Write($"{monster.Name, -8} : Dead");
                     Console.SetCursorPosition(margin, ++line);
                     Console.ForegroundColor = ConsoleColor.Gray;
                     PrintHPBar(monster);
@@ -136,7 +151,7 @@ namespace ConsoleRPG
                 }
                 else
                 {
-                    Console.WriteLine($"{monster.Name, -8} : {monster.Hp}/{monster.DefaultHpMax}");
+                    Console.Write($"{monster.Name, -8} : {monster.Hp}/{monster.DefaultHpMax}");
                     Console.SetCursorPosition(margin, ++line);
                     Console.ForegroundColor = ConsoleColor.Red;
                     PrintHPBar(monster);
@@ -157,7 +172,7 @@ namespace ConsoleRPG
             int hpPercentage = (int)((double)monster.Hp / monster.DefaultHpMax * statusBarLength);
             string statusBar = new string('█', hpPercentage) + new string(' ', statusBarLength - hpPercentage);
             // HP 상태 바 출력
-            Console.WriteLine($"[{statusBar}]");
+            Console.Write($"[{statusBar}]");
         }
 
         public static void PrintSelectAction(int line, List<string> actionText, bool fromZero = true, int selectionLine = 0)
@@ -191,7 +206,6 @@ namespace ConsoleRPG
                 line++;
             }
             Print(line++, "---------------------------");
-
         }
 
         //플레이어 상태 출력
@@ -233,7 +247,6 @@ namespace ConsoleRPG
                 Renderer.ClearLine(line, printWidthPos - 3, printWidthPos);
             }
         }
-
         public static void ClearLine(int line, int exclusionLength = 0, int margin = 2) => 
                                      Print(line, "".PadLeft(width - 3 - exclusionLength, ' '), false, 0, margin);
 
